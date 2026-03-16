@@ -5,6 +5,10 @@ function asString(value: unknown) {
   return typeof value === 'string' ? value : ''
 }
 
+function pickString(value: unknown, fallback: string) {
+  return typeof value === 'string' ? value : fallback
+}
+
 function asBoolean(value: unknown, fallback = true) {
   return typeof value === 'boolean' ? value : fallback
 }
@@ -30,9 +34,9 @@ function normalizeConfig(value: unknown): MapConfig {
   }
 
   return {
-    neighborhoodName: asString(value.neighborhoodName) || sampleData.config.neighborhoodName,
-    houseLayerName: asString(value.houseLayerName) || sampleData.config.houseLayerName,
-    boundaryLayerName: asString(value.boundaryLayerName) || sampleData.config.boundaryLayerName,
+    neighborhoodName: pickString(value.neighborhoodName, sampleData.config.neighborhoodName),
+    houseLayerName: pickString(value.houseLayerName, sampleData.config.houseLayerName),
+    boundaryLayerName: pickString(value.boundaryLayerName, sampleData.config.boundaryLayerName),
     locality: asString(value.locality),
     region: asString(value.region),
     postalCode: asString(value.postalCode),

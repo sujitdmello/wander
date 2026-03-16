@@ -40,15 +40,7 @@ export function validateAppData(data: AppData) {
       })
     }
 
-    if (!house.street.trim()) {
-      issues.push({
-        severity: 'warning',
-        houseId: house.id,
-        message: `${house.displayName || 'A house'} has no street name, which makes search and grouping harder later.`,
-      })
-    }
-
-    const addressKey = `${house.address.trim().toLowerCase()}|${house.street.trim().toLowerCase()}`
+    const addressKey = house.address.trim().toLowerCase()
     if (house.address.trim()) {
       if (addressMap.has(addressKey)) {
         issues.push({

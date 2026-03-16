@@ -1,6 +1,6 @@
 import { startTransition, useDeferredValue, useEffect, useEffectEvent, useMemo, useRef, useState } from 'react'
 import './App.css'
-import { buildAddressCandidates, buildPostalAddress, buildStructuredAddress } from './lib/address'
+import { buildAddressCandidates, buildPostalAddress, buildStructuredAddress, getStreetName } from './lib/address'
 import { exportBoundaryKml, exportHousesCsv, getExportSummary } from './lib/exporters'
 import { lookupCoordinates } from './lib/geocoding'
 import {
@@ -170,7 +170,7 @@ function App() {
     }
 
     return data.houses.filter((house) => {
-      return [house.displayName, house.address, house.street, house.note, house.tag]
+      return [house.displayName, house.address, getStreetName(house), house.note, house.tag]
         .join(' ')
         .toLowerCase()
         .includes(query)
@@ -683,7 +683,7 @@ function App() {
             <div className="section-header compact">
               <div>
                 <h2>Houses</h2>
-                <p>Keep one combined house layer. Street names remain searchable after import.</p>
+                <p>Keep one combined house layer. Street names are inferred from the address unless you override them.</p>
               </div>
               <div className="inline-actions">
                 <button type="button" onClick={addHouse}>Add House</button>
@@ -713,7 +713,7 @@ function App() {
                 >
                   <strong>{house.displayName || 'Untitled house'}</strong>
                   <span>{house.address || 'No address yet'}</span>
-                  <span>{house.street || 'No street assigned'}</span>
+                  <span>{getStreetName(house) || 'No street inferred yet'}</span>
                 </button>
               ))}
             </div>
@@ -738,11 +738,12 @@ function App() {
                   />
                 </label>
                 <label>
-                  <span>Street</span>
+                  <span>Street override</span>
                   <input
                     type="text"
                     value={selectedHouse.street}
                     onChange={(event) => updateSelectedHouse('street', event.target.value)}
+                    placeholder={getStreetName(selectedHouse) || 'Optional'}
                   />
                 </label>
                 <label>
@@ -791,6 +792,7 @@ function App() {
                     </button>
                   </div>
                   <p className="computed-address">Full lookup/export address: {selectedHousePostalAddress || 'Enter a street address and configure town, state, or ZIP.'}</p>
+                  <p className="computed-address">Street used for search/export: {getStreetName(selectedHouse) || 'Derived from the address when possible.'}</p>
                 </div>
                 <label className="span-three">
                   <span>Notes</span>

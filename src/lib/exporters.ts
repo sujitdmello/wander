@@ -1,5 +1,5 @@
 import type { AppData } from '../types'
-import { buildPostalAddress } from './address'
+import { buildPostalAddress, getStreetName } from './address'
 
 function quoteCsv(value: string) {
   const escaped = value.replaceAll('"', '""')
@@ -21,7 +21,7 @@ function parseCoordinate(value: string) {
 }
 
 export function exportHousesCsv(data: AppData) {
-  const header = ['Name', 'Description', 'Address', 'Street', 'Latitude', 'Longitude', 'Tag', 'Active']
+  const header = ['Name', 'Description', 'Address', 'Street', 'Tag', 'Active']
 
   const rows = data.houses
     .filter((house) => house.active)
@@ -32,9 +32,7 @@ export function exportHousesCsv(data: AppData) {
         house.displayName,
         formatDescription(postalAddress, house.note, data.config.exportNotes),
         postalAddress,
-        house.street,
-        house.latitude,
-        house.longitude,
+        getStreetName(house),
         house.tag,
         house.active ? 'TRUE' : 'FALSE',
       ]
@@ -99,7 +97,7 @@ export function getExportSummary(data: AppData) {
   const streetCount = new Set(
     data.houses
       .filter((house) => house.active)
-      .map((house) => house.street.trim())
+      .map((house) => getStreetName(house))
       .filter(Boolean),
   ).size
 

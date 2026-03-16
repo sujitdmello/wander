@@ -30,6 +30,19 @@ export function buildPostalAddress(house: HouseRecord, config: MapConfig) {
   return uniqueParts([house.address.trim(), cityStatePostal]).join(', ')
 }
 
+export function getStreetName(house: HouseRecord) {
+  const explicitStreet = house.street.trim()
+
+  if (explicitStreet) {
+    return explicitStreet
+  }
+
+  const firstLine = house.address.trim().split(',')[0]?.trim() ?? ''
+  const inferredStreet = firstLine.replace(/^\d+[A-Za-z0-9/-]*\s+/, '').trim()
+
+  return inferredStreet
+}
+
 export function buildAddressCandidates(house: HouseRecord, config: MapConfig) {
   const address = house.address.trim()
   const postalAddress = buildPostalAddress(house, config)
