@@ -24,6 +24,10 @@ The current app is designed around a simple single-user workflow:
 - Optional KML export for a neighborhood boundary overlay.
 - Validation for missing names, missing addresses, malformed coordinates, duplicate addresses, and suspicious duplicate coordinates.
 
+## UI Sample
+
+![UI sample showing house list, editor, and preview map](images/ui-sample.png)
+
 ## Run the app
 
 Install dependencies and start the local dev server:
