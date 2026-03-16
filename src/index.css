@@ -1,0 +1,85 @@
+:root {
+  --paper: #f7f2e8;
+  --paper-deep: #efe4d2;
+  --ink: #102a43;
+  --muted: #5f6c7b;
+  --line: rgba(16, 42, 67, 0.12);
+  --panel: rgba(255, 251, 244, 0.88);
+  --shadow: 0 24px 64px rgba(16, 42, 67, 0.12);
+  --sans: 'Trebuchet MS', 'Segoe UI', sans-serif;
+  --heading: 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+  --mono: 'Cascadia Code', 'Consolas', monospace;
+  font: 16px/1.5 var(--sans);
+  color: var(--muted);
+  background: var(--paper);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background:
+    radial-gradient(circle at top left, rgba(248, 162, 61, 0.18), transparent 22%),
+    radial-gradient(circle at bottom right, rgba(31, 120, 180, 0.14), transparent 24%),
+    linear-gradient(180deg, #f9f4ec, #f3ebdf 60%, #efe4d2);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.3;
+  background-image:
+    linear-gradient(rgba(16, 42, 67, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 42, 67, 0.035) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+#root {
+  width: min(1360px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 1.5rem 0 2rem;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--heading);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 4vw, 4.5rem);
+  line-height: 0.94;
+  letter-spacing: -0.05em;
+  margin-bottom: 0.8rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+h3 {
+  font-size: 1.05rem;
+}
+
+p {
+  margin: 0;
+}
+
+code {
+  font-family: var(--mono);
+}

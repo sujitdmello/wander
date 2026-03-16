@@ -1,0 +1,63 @@
+{
+  "config": {
+    "neighborhoodName": "Oak Terrace Pilot",
+    "houseLayerName": "Oak Terrace Houses",
+    "boundaryLayerName": "Oak Terrace Boundary",
+    "locality": "Springfield",
+    "region": "PA",
+    "postalCode": "19064",
+    "exportNotes": "Generated with Wander. Review names and coordinates before importing into My Maps.",
+    "boundaryPoints": [
+      { "lat": "40.123650", "lng": "-75.123950" },
+      { "lat": "40.123980", "lng": "-75.122900" },
+      { "lat": "40.123210", "lng": "-75.122320" },
+      { "lat": "40.122840", "lng": "-75.123280" }
+    ]
+  },
+  "houses": [
+    {
+      "id": "house-001",
+      "displayName": "Jordan Family",
+      "address": "101 Oak Terrace",
+      "street": "Oak Terrace",
+      "latitude": "40.123420",
+      "longitude": "-75.123440",
+      "note": "Blue shutters and a wide front porch.",
+      "tag": "Wave first",
+      "active": true
+    },
+    {
+      "id": "house-002",
+      "displayName": "A. Rivera",
+      "address": "104 Oak Terrace",
+      "street": "Oak Terrace",
+      "latitude": "40.123510",
+      "longitude": "-75.123100",
+      "note": "Brick mailbox.",
+      "tag": "",
+      "active": true
+    },
+    {
+      "id": "house-003",
+      "displayName": "Lee Household",
+      "address": "203 Juniper Lane",
+      "street": "Juniper Lane",
+      "latitude": "40.123140",
+      "longitude": "-75.122820",
+      "note": "Corner lot with a maple tree.",
+      "tag": "Check spelling",
+      "active": true
+    },
+    {
+      "id": "house-004",
+      "displayName": "M. Patel",
+      "address": "207 Juniper Lane",
+      "street": "Juniper Lane",
+      "latitude": "40.123000",
+      "longitude": "-75.122560",
+      "note": "",
+      "tag": "",
+      "active": true
+    }
+  ]
+}
