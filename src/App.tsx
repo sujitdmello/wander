@@ -468,30 +468,33 @@ function App() {
       />
 
       <header className="hero-panel">
-        <div>
+        <img
+          className="hero-illustration"
+          src="/wander-hero.svg"
+          alt="A man and his dog wandering through a neighborhood of small houses"
+        />
+        <div className="hero-copy-block">
           <p className="eyebrow">Neighborhood My Maps Pack</p>
-          <h1>Build one house layer, then wander with Google Maps.</h1>
+          <h1>wander</h1>
           <p className="hero-copy">
-            Edit a private JSON file, validate the records, export one combined CSV for house markers,
-            and optionally export a boundary KML for orientation.
+            Edit a JSON file, validate, and export CSV markers and KML boundaries for Google My Maps.
           </p>
         </div>
-
         <div className="hero-actions">
           <button type="button" className="primary" onClick={openJsonFile}>
-            Open JSON File
+            Open JSON
           </button>
           <button type="button" onClick={saveToSourceFile}>
-            Save Back To Source
+            Save Back
           </button>
           <button type="button" onClick={downloadJsonSnapshot}>
-            Download JSON Snapshot
+            Snapshot
           </button>
           <button type="button" onClick={exportCsv}>
-            Export Combined CSV
+            CSV
           </button>
           <button type="button" onClick={exportKml} disabled={!canExportBoundary}>
-            Export Boundary KML
+            KML
           </button>
         </div>
       </header>

@@ -1,3 +1,5 @@
+![Man walking a Boston Terrier through a neighborhood of houses](public/wander-banner.svg)
+
 # Wander
 
 Wander is a local desktop web UI for maintaining a private neighborhood house list and exporting artifacts that import cleanly into Google My Maps.

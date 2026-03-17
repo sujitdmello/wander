@@ -5,40 +5,67 @@
 }
 
 .hero-panel {
-  display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(19rem, 1fr);
-  gap: 1.5rem;
-  padding: 2rem;
-  border-radius: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 1.25rem;
   background:
     radial-gradient(circle at top right, rgba(254, 214, 101, 0.35), transparent 30%),
     linear-gradient(135deg, rgba(16, 42, 67, 0.95), rgba(31, 78, 121, 0.92));
   color: #f5f0e6;
-  box-shadow: 0 24px 80px rgba(16, 42, 67, 0.24);
+  box-shadow: 0 10px 36px rgba(16, 42, 67, 0.18);
+}
+
+.hero-illustration {
+  display: block;
+  width: 5.5rem;
+  height: 5.5rem;
+  flex-shrink: 0;
+  border-radius: 0.85rem;
+  object-fit: cover;
+}
+
+.hero-copy-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.hero-panel h1 {
+  font-size: 1.35rem;
+  line-height: 1.1;
+  margin-bottom: 0;
 }
 
 .eyebrow {
-  margin: 0 0 0.75rem;
-  font-size: 0.82rem;
+  margin: 0;
+  font-size: 0.7rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(245, 240, 230, 0.72);
+  color: rgba(245, 240, 230, 0.6);
 }
 
 .hero-copy {
-  max-width: 46rem;
-  color: rgba(245, 240, 230, 0.86);
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: rgba(245, 240, 230, 0.72);
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  align-content: start;
-  gap: 0.75rem;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
 }
 
 .hero-actions button {
-  min-width: 11.5rem;
+  min-width: 0;
+  padding: 0.55rem 0.9rem;
+  font-size: 0.82rem;
 }
 
 .dashboard-grid {
@@ -388,7 +415,10 @@ button.danger {
 }
 
 @media (max-width: 900px) {
-  .hero-panel,
+  .hero-panel {
+    flex-wrap: wrap;
+  }
+
   .form-grid.two-up,
   .form-grid.three-up,
   .house-list {
