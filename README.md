@@ -2,7 +2,11 @@
 
 # Wander
 
-Wander is a local desktop web UI for maintaining a private neighborhood house list and exporting artifacts that import cleanly into Google My Maps.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+Wander is a local desktop web UI for maintaining a private neighborhood house list and exporting artifacts that import cleanly into Google My Maps. The idea for this app was born out of my desire to keep a track of the names of people in my neighborhood and the locations of their houses, so I can quickly look them up on Google maps and refer to them by name when I walk by with my dog. I wanted a simple way to maintain that data without sharing it with any third-party service.
+
+> **Privacy note:** All data stays in your browser. Wander does not send your neighborhood data to any server. Geocoding requests go to the U.S. Census Bureau and OpenStreetMap Nominatim APIs using only the street address — no names or notes are transmitted.
 
 The current app is designed around a simple single-user workflow:
 
@@ -30,21 +34,30 @@ The current app is designed around a simple single-user workflow:
 
 ![UI sample showing house list, editor, and preview map](images/ui-sample.png)
 
-## Run the app
+## Prerequisites
 
-Install dependencies and start the local dev server:
+- [Node.js](https://nodejs.org/) 18 or later
+- npm (included with Node.js)
+
+## Getting started
 
 ```bash
+git clone https://github.com/sujitdmello/wander.git
+cd wander
 npm install
 npm run dev
 ```
 
-Validation commands:
+Then open the URL shown in the terminal (usually `http://localhost:5173`).
 
-```bash
-npm run build
-npm run lint
-```
+## Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start the local dev server |
+| `npm run build` | Type-check and build for production |
+| `npm run preview` | Serve the production build locally |
+| `npm run lint` | Run ESLint |
 
 ## Data model
 
@@ -99,6 +112,25 @@ The app expects a JSON document with a `config` section and a `houses` array.
 - `address`: the street-address line only, such as `101 Oak Terrace`.
 - `street`: optional override field. If left blank, Wander derives the street name from the address.
 - `latitude` and `longitude`: explicit coordinates; these take precedence once present.
+
+## Tech stack
+
+- [React](https://react.dev/) 19 + TypeScript
+- [Vite](https://vite.dev/) 8 for dev server and bundling
+- No backend — runs entirely in the browser
+
+## Contributing
+
+Contributions are welcome! Please open an issue to discuss your idea before submitting a pull request.
+
+1. Fork the repository.
+2. Create a feature branch (`git checkout -b my-feature`).
+3. Make your changes and confirm `npm run build` and `npm run lint` pass.
+4. Open a pull request against `main`.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
 - `latitude` and `longitude`: optional editor-side coordinates used for preview, verification, and manual correction.
 - `note`: included in the exported description field.
 - `tag`: optional editor-only helper field that is also exported.

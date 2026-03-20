@@ -1,7 +1,13 @@
 {
   "name": "wander",
-  "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Local web UI for maintaining a neighborhood house list and exporting to Google My Maps.",
+  "author": "Sujit D'Mello",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sujitdmello/wander.git"
+  },
   "type": "module",
   "scripts": {
     "dev": "vite",

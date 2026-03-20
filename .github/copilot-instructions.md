@@ -1,12 +1,9 @@
-- [x] Verify that the copilot-instructions.md file in the .github directory is created.
-- [x] Clarify Project Requirements: local desktop web UI, React and TypeScript, JSON source of truth, combined CSV export, optional boundary KML export.
-- [x] Scaffold the Project: Vite React TypeScript app created in the workspace root and dependencies installed.
-- [x] Customize the Project: replaced the starter with a neighborhood editor, validation, JSON file workflow, and My Maps export actions.
-- [x] Install Required Extensions: no extensions were required by the project setup info.
-- [x] Compile the Project: `npm run build` and `npm run lint` both pass.
-- [x] Create and Run Task: skipped because the standard npm scripts are sufficient for local development and build validation.
-- [ ] Launch the Project: not launched in debug mode because the user has not requested it yet.
-- [x] Ensure Documentation is Complete: README and this file reflect the current project state.
-- Work through each checklist item systematically.
+## Project conventions
+
+- Stack: Vite + React 19 + TypeScript (strict mode).
+- All source lives under `src/`; shared types in `src/types.ts`.
+- Library helpers (`src/lib/`) are pure functions with no React dependencies.
+- The canonical sample data file is `data/houses.sample.json`.
+- Run `npm run build` and `npm run lint` before committing.
 - Keep communication concise and focused.
 - Follow development best practices.

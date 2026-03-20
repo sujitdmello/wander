@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# User data (keep only the sample)
+data/*
+!data/houses.sample.json
