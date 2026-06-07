@@ -1,0 +1,11 @@
+# XcodeGen output and Xcode artifacts
+*.xcodeproj/
+*.xcworkspace/
+xcuserdata/
+DerivedData/
+build/
+*.xcuserstate
+.DS_Store
+
+# Local house data should never be committed.
+WanderWatch Watch App/Resources/houses.json
