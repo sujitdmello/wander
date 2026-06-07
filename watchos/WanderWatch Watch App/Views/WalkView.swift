@@ -3,6 +3,7 @@ import CoreLocation
 
 struct WalkView: View {
     @EnvironmentObject private var session: WalkSession
+    @Environment(\.scenePhase) private var scenePhase
     @State private var selectedID: String?
     @State private var showStopConfirm = false
     @State private var showStopButton = false
@@ -32,10 +33,17 @@ struct WalkView: View {
                 Button(role: .destructive) {
                     showStopConfirm = true
                 } label: {
-                    Label("Stop", systemImage: "stop.circle")
-                        .font(.caption)
+                    Label("Stop", systemImage: "stop.fill")
+                        .font(.footnote.weight(.semibold))
+                        .foregroundStyle(.white)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 7)
+                        .background(
+                            Capsule().fill(Color.red)
+                        )
                 }
-                .buttonStyle(.bordered)
+                .buttonStyle(.plain)
+                .shadow(color: .black.opacity(0.35), radius: 2, x: 0, y: 1)
                 .padding(.bottom, 4)
                 .transition(.opacity)
             }
@@ -52,6 +60,12 @@ struct WalkView: View {
         .confirmationDialog("End walk?", isPresented: $showStopConfirm, titleVisibility: .visible) {
             Button("End Walk", role: .destructive) { session.stop() }
             Button("Keep Walking", role: .cancel) { }
+        }
+        .onChange(of: scenePhase) { _, newPhase in
+            if newPhase == .active {
+                // Force re-selection so rankedHouses onChange picks nearest.
+                selectedID = nil
+            }
         }
     }
 }
