@@ -50,6 +50,13 @@ npm run dev
 
 Then open the URL shown in the terminal (usually `http://localhost:5173`).
 
+## Apple Watch companion app
+
+Wander also includes a native watchOS app for in-walk, distance-sorted house lookup on Apple Watch.
+
+- Watch app project: [watchos](watchos/)
+- Setup, build, and usage guide: [watchos/README.md](watchos/README.md)
+
 ## Scripts
 
 | Command | Description |
