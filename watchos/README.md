@@ -5,6 +5,8 @@ It loads your house list from a bundled JSON file, tracks your location while
 you walk, and shows you the houses nearest you — closest first, swipe left/right
 for the next one.
 
+> There is no app in the App Store - you must compile the code in this repo with your custom house JSON file and deploy it to your Apple Watch (see below for instructions). This is possible with a free Apple Developer account.
+
 ## Features
 
 - Pure watchOS app (no paired iPhone app required).
@@ -18,6 +20,10 @@ for the next one.
 - `WKBackgroundModes = location` so location updates continue while your wrist
   is down during a walk.
 
+## App Screens
+![Home Screen](/images/wander-watch-home.png)
+![While Walking](/images/wander-watch-main.png)
+![Stop Walking](/images/wander-watch-end.png)
 ## Project layout
 
 ```
