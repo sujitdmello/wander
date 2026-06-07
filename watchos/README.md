@@ -22,7 +22,9 @@ for the next one.
 
 ## App Screens
 ![Home Screen](/images/wander-watch-home.png)
+
 ![While Walking](/images/wander-watch-main.png)
+
 ![Stop Walking](/images/wander-watch-end.png)
 ## Project layout
 
